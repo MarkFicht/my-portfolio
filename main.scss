@@ -1,0 +1,223 @@
+$bgImg: url("img/bg2.jpg");
+$timeAnime: 1.5s;
+
+@keyframes cloud {
+  from { background-position: 11% 1%; }
+  to { background-position: 100% 1%; }
+}
+@keyframes visibilityCube {
+  from { opacity: 0; }
+  50% { opacity: 1; }
+  to { opacity: 1; }
+}
+@keyframes visibilityContent {
+  from { opacity: 0; }
+  49% { opacity: 0; }
+  50% { opacity: 1; }
+  to { opacity: 1; }
+}
+
+@keyframes textColor {
+  0% { color: #7e0fff; border: 2px solid #7e0fff; }
+  50% { color: #0181a1; border: 2px solid #0181a1; }
+  100% { color: #7e0fff; border: 2px solid #7e0fff; }
+}
+
+@keyframes showContent1 {
+  to { transform: rotateX(80deg) rotate(30deg) translateY(-50%); }
+}
+@keyframes showContent2 {
+  to { transform: rotateY(80deg) rotate(30deg) translateX(-50%); }
+}
+@keyframes showContent3 {
+  to { transform: rotateY(-80deg) rotate(30deg) translateX(50%); }
+}
+@keyframes showContent4 {
+  to { transform: rotateX(-80deg) rotate(30deg) translateY(50%); }
+}
+
+.animationCube {
+  animation: visibilityCube $timeAnime ease-out forwards;
+}
+.animationContent {
+  animation: visibilityContent $timeAnime ease-out forwards;
+}
+
+.left-top-move {
+  animation: showContent1 $timeAnime/2 $timeAnime/2 ease-out forwards;
+}
+.left-bottom-move {
+  animation: showContent2 $timeAnime/2 $timeAnime/2 ease-out forwards;
+}
+.right-top-move {
+  animation: showContent3 $timeAnime/2 $timeAnime/2 ease-out forwards;
+}
+.right-bottom-move {
+  animation: showContent4 $timeAnime/2 $timeAnime/2 ease-out forwards;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: $bgImg;
+  background-size: 2200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(5px);
+}
+
+.cloud {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("img/cloud.png");
+  background-repeat: no-repeat;
+  background-size: 8000px;
+  filter: blur(5px);
+  animation: cloud 60s linear infinite;
+  z-index: 1;
+  opacity: .2;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  p {
+    font-size: 22px;
+  }
+}
+
+#btn-start {
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(black, .2);
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  z-index: 4;
+  outline: none;
+  cursor: pointer;
+  //border: 5px solid #262626;
+  //color: #262626;
+  transition: .5s;
+  box-shadow: 0 0 40px black, 0 0 5px black;
+  animation: textColor 5s linear infinite;
+
+  &:hover, &:focus {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.container-content {
+  width: 75%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-image: $bgImg;
+  background-size: 2200px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 30px black, 0 0 20px black;
+    opacity: .75;
+  }
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#fff, .9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  z-index: 2;
+}
+
+.container-content > div {
+  span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: tomato;
+    opacity: 0;
+  }
+
+  &:nth-child(3) > span {
+    background-color: orange;
+  }
+  &:nth-child(4) > span {
+    background-color: greenyellow;
+  }
+  &:nth-child(5) > span {
+    background-color: cadetblue;
+  }
+}
+
+@mixin cubes4() {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+  transition: $timeAnime;
+  z-index: 3;
+}
+
+.left-top {
+  @include cubes4();
+  top: 0;
+  left: 0;
+  transform-origin: top;
+}
+.left-bottom {
+  @include cubes4();
+  bottom: 0;
+  left: 0;
+  transform-origin: left;
+}
+.right-top {
+  @include cubes4();
+  top: 0;
+  right: 0;
+  transform-origin: right;
+}
+.right-bottom {
+  @include cubes4();
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom;
+}
