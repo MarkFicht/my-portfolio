@@ -3,8 +3,8 @@ $timeAnime: 2s;
 
 $colors: (
   c1: tomato,
-  c2: orange,
-  c3: greenyellow,
+  c2: #F6B352,
+  c3: #AAC06E,
   c4: cadetblue,
 );
 
@@ -64,7 +64,7 @@ $colors: (
 }
 
 :root {
-  font-size: 10px;
+  font-size: 8px;
 }
 
 * {
@@ -72,6 +72,7 @@ $colors: (
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
+  color: #262626;
 }
 
 .blur {
@@ -101,7 +102,7 @@ $colors: (
   filter: blur(5px);
   animation: cloud 60s linear infinite;
   z-index: 1;
-  opacity: .15;
+  opacity: .2;
 }
 
 .container {
@@ -146,6 +147,9 @@ $colors: (
   &:hover, &:focus {
     transform: translate(-50%, -50%) scale(1.1);
   }
+  &:active {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
 }
 
 .container-content {
@@ -183,6 +187,7 @@ $colors: (
   align-items: center;
   flex-direction: column;
   font-size: 2rem;
+  padding-top: 20px;
   letter-spacing: 2px;
   position: relative;
 
@@ -214,36 +219,95 @@ $colors: (
   align-items: center;
   width: 100%;
 
-  & > ul {
+  & > ul > li {
+    margin: 15px;
+    list-style: none;
+    position: relative;
 
-    & > li {
-      margin: 10px;
-      list-style: none;
+    &:nth-child(2) > button {
+      background-color: lighten(map_get($colors, c2), 20%);
+      border: 2px solid map_get($colors, c2);
+    }
+    &:nth-child(3) > button {
+      background-color: lighten(map_get($colors, c3), 20%);
+      border: 2px solid map_get($colors, c3);
+    }
+    &:nth-child(4) > button {
+      background-color: lighten(map_get($colors, c4), 20%);
+      border: 2px solid map_get($colors, c4);
+    }
 
-      &:nth-child(2) > button {
-        background-color: map_get($colors, c2);
-      }
-      &:nth-child(3) > button {
-        background-color: map_get($colors, c3);
-      }
-      &:nth-child(4) > button {
-        background-color: map_get($colors, c4);
+    & > button {
+      font-size: 2rem;
+      letter-spacing: 3px;
+      font-weight: bold;
+      width: 300px;
+      height: 50px;
+      cursor: pointer;
+      outline: none;
+      background-color: lighten(map_get($colors, c1), 20%);
+      border: 2px solid map_get($colors, c1);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -50px;
+        height: 100%;
+        width: 0;
+        //background-color: rgba(black, .07);
+        border-left: 0 solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 0 solid transparent;
+        border-top: calc(50px - 4px) solid rgba(black, .07);
+        transition: all .5s;
       }
 
-      & > button {
-        font-size: 2.2rem;
-        letter-spacing: 3px;
-        font-weight: bold;
-        width: 300px;
-        height: 50px;
-        cursor: pointer;
-        outline: none;
-        border: none;
-        background-color: map_get($colors, c1);
+      &:hover:before, &:focus:before {
+        width: 45%;
+        left: 0;
+        transition: all .5s;
       }
     }
+
+    &:hover .border1:after, &:hover .border1:before {
+      transition: all .5s;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+    }
+
   }
 }
+
+.border1 {
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    background-color: transparent;
+    transition: all .5s;
+    width: 0;
+    height: 0;
+    //width: calc(100% + 4px);
+    //height: calc(100% + 4px);
+    border-top: 2px solid tomato;
+    border-left: 2px solid tomato;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+  }
+  &:after {
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid tomato;
+    border-left: 2px solid transparent;
+    border-right: 2px solid tomato;
+  }
+}
+
+
 
 
 .container-content > div {
