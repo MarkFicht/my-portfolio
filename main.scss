@@ -5,14 +5,15 @@ $colors: (
   c1: tomato,
   c2: #F6B352,
   c3: #AAC06E,
-  c4: cadetblue,
+  //c4: #5F9EAF,
+  c4: #4da6ff,
 );
 
 @keyframes cloud {
   from { background-position: 11% 1%; }
   to { background-position: 100% 1%; }
 }
-@keyframes visibilityCube {
+@keyframes visibility {
   from { opacity: 0; }
   50% { opacity: 1; }
   to { opacity: 1; }
@@ -30,38 +31,7 @@ $colors: (
   100% { color: #7e0fff; border: 2px solid #7e0fff; }
 }
 
-@keyframes showContent1 {
-  to { transform: rotateX(80deg) rotate(30deg) translateY(-50%); }
-}
-@keyframes showContent2 {
-  to { transform: rotateY(80deg) rotate(30deg) translateX(-50%); }
-}
-@keyframes showContent3 {
-  to { transform: rotateY(-80deg) rotate(30deg) translateX(50%); }
-}
-@keyframes showContent4 {
-  to { transform: rotateX(-80deg) rotate(30deg) translateY(50%); }
-}
-
-.animationCube {
-  animation: visibilityCube $timeAnime ease-out forwards;
-}
-.animationContent {
-  animation: visibilityContent $timeAnime ease-out forwards;
-}
-
-.left-top-move {
-  animation: showContent1 $timeAnime/2 $timeAnime/2 ease-out forwards;
-}
-.left-bottom-move {
-  animation: showContent2 $timeAnime/2 $timeAnime/2 ease-out forwards;
-}
-.right-top-move {
-  animation: showContent3 $timeAnime/2 $timeAnime/2 ease-out forwards;
-}
-.right-bottom-move {
-  animation: showContent4 $timeAnime/2 $timeAnime/2 ease-out forwards;
-}
+// **************** Basic
 
 :root {
   font-size: 8px;
@@ -89,9 +59,10 @@ $colors: (
   filter: blur(0);
   transition: all $timeAnime/2;
 }
-
 .cloud {
   position: absolute;
+  z-index: 1;
+  opacity: .2;
   height: 100vh;
   width: 100%;
   top: 0;
@@ -101,18 +72,16 @@ $colors: (
   background-size: 8000px;
   filter: blur(5px);
   animation: cloud 60s linear infinite;
-  z-index: 1;
-  opacity: .2;
 }
 
 .container {
+  position: relative;
   width: 100%;
   height: 100vh;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   overflow: hidden;
 
   p {
@@ -120,8 +89,103 @@ $colors: (
   }
 }
 
+// **************** 4 cubes
+
+.visibility {
+  animation: visibility $timeAnime ease-out forwards;
+}
+.visibilityContent {
+  animation: visibilityContent $timeAnime ease-out forwards;
+}
+
+//---
+.left-top-move {
+  transform: rotateX(80deg) rotate(30deg) translateY(-50%);
+}
+.left-bottom-move {
+  transform: rotateY(80deg) rotate(30deg) translateX(-50%);
+}
+.right-top-move {
+  transform: rotateY(-80deg) rotate(30deg) translateX(50%);
+}
+.right-bottom-move {
+  transform: rotateX(-80deg) rotate(30deg) translateY(50%);
+}
+
+@mixin cubes4() {
+  position: absolute;
+  z-index: 3;
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+  transition: $timeAnime/2;
+}
+.left-top {
+  @include cubes4();
+  top: 0;
+  left: 0;
+  transform-origin: top;
+}
+.left-bottom {
+  @include cubes4();
+  bottom: 0;
+  left: 0;
+  transform-origin: left;
+}
+.right-top {
+  @include cubes4();
+  top: 0;
+  right: 0;
+  transform-origin: right;
+}
+.right-bottom {
+  @include cubes4();
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom;
+}
+
+.container-content > div {
+  span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: linear-gradient(135deg , map_get($colors, c1) , lighten(map_get($colors, c1), 15%));
+    opacity: 0;
+  }
+  &:nth-child(3) > span {
+    background: linear-gradient(45deg , map_get($colors, c2) , lighten(map_get($colors, c2), 15%));
+  }
+  &:nth-child(4) > span {
+    background: linear-gradient(-135deg , map_get($colors, c3) , lighten(map_get($colors, c3), 15%));
+  }
+  &:nth-child(5) > span {
+    background: linear-gradient(-45deg , map_get($colors, c4) , lighten(map_get($colors, c4), 15%));
+  }
+}
+
+// **************** Content Container
+
+.container-content {
+  position: relative;
+  width: 75%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: $bgImg;
+  background-size: 2200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all $timeAnime/2;
+  //box-shadow: 0 0 50px black, 0 0 30px black;
+  box-shadow: 0 0 20px black;
+}
+
+//--- Start Btn
 #btn-start {
   position: absolute;
+  z-index: 4;
   top: 33%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -134,7 +198,6 @@ $colors: (
   font-size: 30px;
   font-weight: bold;
   letter-spacing: 3px;
-  z-index: 4;
   outline: none;
   cursor: pointer;
   border-radius: 50px;
@@ -152,23 +215,10 @@ $colors: (
   }
 }
 
-.container-content {
-  width: 75%;
-  height: 75%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background-image: $bgImg;
-  background-size: 2200px;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: all $timeAnime/2;
-  //box-shadow: 0 0 50px black, 0 0 30px black;
-  box-shadow: 0 0 20px black;
-}
-
+//--- Content
 .content {
+  z-index: 2;
+  opacity: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(#fff, .95);
@@ -176,11 +226,9 @@ $colors: (
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  opacity: 0;
-  z-index: 2;
 }
 
-.home {
+.header-home {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -213,6 +261,118 @@ $colors: (
   }
 }
 
+//--- 4 Buttons
+@mixin buttonsX4($bg-col, $border) {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+  width: 260px;
+  height: 40px;
+  cursor: pointer;
+  outline: none;
+  background-color: $bg-col;
+  border: $border;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all .5s;
+
+  &:hover {
+    letter-spacing: 3px;
+    transition: all .5s;
+
+    &:before {
+      width: 40%;
+      left: 0;
+      transition: all .5s;
+    }
+
+    & ~ .border-btns:after, & ~ .border-btns:before {
+      transition: all .5s;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    height: 100%;
+    width: 0;
+    //background-color: rgba(black, .07);
+    border-left: 0 solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 0 solid transparent;
+    border-top: calc(50px - 4px) solid rgba(black, .07);
+    transition: all .5s;
+  }
+}
+
+//--- Border For Btns
+@mixin borderX4($borderHover) {
+  &:before {
+    content: '';
+    transition: all .5s;
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 0;
+    height: 0;
+    //width: calc(100% + 4px);
+    //height: calc(100% + 4px);
+    border-top: $borderHover;
+    border-left: $borderHover;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+  }
+  &:after {
+    content: '';
+    transition: all .5s;
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    background-color: transparent;
+    width: 0;
+    height: 0;
+    border-bottom: $borderHover;
+    border-right: $borderHover;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+  }
+}
+
+button#submenu-me {
+  @include buttonsX4(lighten(map_get($colors, c1), 20%), 2px solid map_get($colors, c1));
+
+  & ~ .border-btns {
+    @include borderX4(2px solid map_get($colors, c1))
+  }
+}
+button#submenu-skills {
+  @include buttonsX4(lighten(map_get($colors, c2), 20%), 2px solid map_get($colors, c2));
+
+  & ~ .border-btns {
+    @include borderX4(2px solid map_get($colors, c2))
+  }
+}
+button#submenu-projects {
+  @include buttonsX4(lighten(map_get($colors, c3), 20%), 2px solid map_get($colors, c3));
+
+  & ~ .border-btns {
+    @include borderX4(2px solid map_get($colors, c3))
+  }
+}
+button#submenu-contact {
+  @include buttonsX4(lighten(map_get($colors, c4), 20%), 2px solid map_get($colors, c4));
+
+  & ~ .border-btns {
+    @include borderX4(2px solid map_get($colors, c4))
+  }
+}
+
+//--- NAV for 4 btns
 .nav {
   display: flex;
   justify-content: center;
@@ -223,189 +383,69 @@ $colors: (
     margin: 16px;
     list-style: none;
     position: relative;
-    z-index: 1;
+    z-index: 3;
 
     &:first-child {
       margin-top: 5px;
     }
 
-    &:nth-child(2) > button {
-      background-color: lighten(map_get($colors, c2), 20%);
-      border: 2px solid map_get($colors, c2);
-    }
-    &:nth-child(3) > button {
-      background-color: lighten(map_get($colors, c3), 20%);
-      border: 2px solid map_get($colors, c3);
-    }
-    &:nth-child(4) > button {
-      background-color: lighten(map_get($colors, c4), 20%);
-      border: 2px solid map_get($colors, c4);
-    }
-
-    & > button {
-      font-size: 2rem;
-      letter-spacing: 2px;
-      font-weight: bold;
-      width: 260px;
-      height: 40px;
-      cursor: pointer;
-      outline: none;
-      background-color: lighten(map_get($colors, c1), 20%);
-      border: 2px solid map_get($colors, c1);
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
-      transition: all .5s;
-
-      &:hover {
-        letter-spacing: 3px;
-        transition: all .5s;
-      }
-
-      &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -50px;
-        height: 100%;
-        width: 0;
-        //background-color: rgba(black, .07);
-        border-left: 0 solid transparent;
-        border-right: 50px solid transparent;
-        border-bottom: 0 solid transparent;
-        border-top: calc(50px - 4px) solid rgba(black, .07);
-        transition: all .5s;
-      }
-    }
-
-    &:hover > button:before, &:focus > button:before {
-      width: 40%;
-      left: 0;
-      transition: all .5s;
-    }
-
-    &:hover .border-btns:after, &:hover .border-btns:before {
-      transition: all .5s;
-      width: calc(100% + 4px);
-      height: calc(100% + 4px);
-    }
-
-
-    &:nth-child(2) .border-btns:before {
-      border-top: 2px solid map_get($colors, c2);
-      border-left: 2px solid map_get($colors, c2);
-    }
-    &:nth-child(2) .border-btns:after {
-      border-bottom: 2px solid map_get($colors, c2);
-      border-right: 2px solid map_get($colors, c2);
-    }
-    &:nth-child(3) .border-btns:before {
-      border-top: 2px solid map_get($colors, c3);
-      border-left: 2px solid map_get($colors, c3);
-    }
-    &:nth-child(3) .border-btns:after {
-      border-bottom: 2px solid map_get($colors, c3);
-      border-right: 2px solid map_get($colors, c3);
-    }
-    &:nth-child(4) .border-btns:before {
-      border-top: 2px solid map_get($colors, c4);
-      border-left: 2px solid map_get($colors, c4);
-    }
-    &:nth-child(4) .border-btns:after {
-      border-bottom: 2px solid map_get($colors, c4);
-      border-right: 2px solid map_get($colors, c4);
-    }
+    //&:hover .border-btns:after, &:hover .border-btns:before {
+    //  transition: all .5s;
+    //  width: calc(100% + 4px);
+    //  height: calc(100% + 4px);
+    //}
+    //&:nth-child(2) .border-btns:before {
+    //  border-top: 2px solid map_get($colors, c2);
+    //  border-left: 2px solid map_get($colors, c2);
+    //}
+    //&:nth-child(2) .border-btns:after {
+    //  border-bottom: 2px solid map_get($colors, c2);
+    //  border-right: 2px solid map_get($colors, c2);
+    //}
+    //&:nth-child(3) .border-btns:before {
+    //  border-top: 2px solid map_get($colors, c3);
+    //  border-left: 2px solid map_get($colors, c3);
+    //}
+    //&:nth-child(3) .border-btns:after {
+    //  border-bottom: 2px solid map_get($colors, c3);
+    //  border-right: 2px solid map_get($colors, c3);
+    //}
+    //&:nth-child(4) .border-btns:before {
+    //  border-top: 2px solid map_get($colors, c4);
+    //  border-left: 2px solid map_get($colors, c4);
+    //}
+    //&:nth-child(4) .border-btns:after {
+    //  border-bottom: 2px solid map_get($colors, c4);
+    //  border-right: 2px solid map_get($colors, c4);
+    //}
   }
 }
 
-.border-btns {
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    background-color: transparent;
-    transition: all .5s;
-    width: 0;
-    height: 0;
-    //width: calc(100% + 4px);
-    //height: calc(100% + 4px);
-    border-top: 2px solid map_get($colors, c1);
-    border-left: 2px solid map_get($colors, c1);
-    border-bottom: 2px solid transparent;
-    border-right: 2px solid transparent;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    right: -4px;
-    background-color: transparent;
-    transition: all .5s;
-    width: 0;
-    height: 0;
-    border-top: 2px solid transparent;
-    border-bottom: 2px solid map_get($colors, c1);
-    border-left: 2px solid transparent;
-    border-right: 2px solid map_get($colors, c1);
-  }
+////////////////////////////
+.first-section {
+  transform: rotateX(0deg) rotate(0deg) translate(0);
+  width: 100%;
+  height: 100%;
 }
 
-.container-content > div {
-  span {
-    width: 100%;
-    height: 100%;
-    display: block;
-    //background-color: map_get($colors, c1);
-    background: linear-gradient(135deg , map_get($colors, c1) , lighten(map_get($colors, c1), 20%));
-    opacity: 0;
-  }
 
-  &:nth-child(3) > span {
-    //background-color: map_get($colors, c2);
-    background: linear-gradient(45deg , map_get($colors, c2) , lighten(map_get($colors, c2), 20%));
-  }
-  &:nth-child(4) > span {
-    //background-color: map_get($colors, c3);
-    background: linear-gradient(-135deg , map_get($colors, c3) , lighten(map_get($colors, c3), 20%));
-  }
-  &:nth-child(5) > span {
-    //background-color: map_get($colors, c4);
-    background: linear-gradient(-45deg , map_get($colors, c4) , lighten(map_get($colors, c4), 20%));
-  }
-}
 
-@mixin cubes4() {
+//////////////////
+#btn-back {
   position: absolute;
-  width: 50%;
-  height: 50%;
-  overflow: hidden;
-  transition: $timeAnime;
+  top: 20px;
+  left: 50%;
+  background-color: red;
   z-index: 3;
 }
 
-.left-top {
-  @include cubes4();
+.display-submenu {
+  display: none;
+  position: absolute;
   top: 0;
   left: 0;
-  transform-origin: top;
-}
-.left-bottom {
-  @include cubes4();
-  bottom: 0;
-  left: 0;
-  transform-origin: left;
-}
-.right-top {
-  @include cubes4();
-  top: 0;
-  right: 0;
-  transform-origin: right;
-}
-.right-bottom {
-  @include cubes4();
-  bottom: 0;
-  right: 0;
-  transform-origin: bottom;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+  z-index: 3;
 }
