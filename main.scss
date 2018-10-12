@@ -220,9 +220,14 @@ $colors: (
   width: 100%;
 
   & > ul > li {
-    margin: 15px;
+    margin: 16px;
     list-style: none;
     position: relative;
+    z-index: 1;
+
+    &:first-child {
+      margin-top: 5px;
+    }
 
     &:nth-child(2) > button {
       background-color: lighten(map_get($colors, c2), 20%);
@@ -239,10 +244,10 @@ $colors: (
 
     & > button {
       font-size: 2rem;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       font-weight: bold;
-      width: 300px;
-      height: 50px;
+      width: 260px;
+      height: 40px;
       cursor: pointer;
       outline: none;
       background-color: lighten(map_get($colors, c1), 20%);
@@ -250,6 +255,12 @@ $colors: (
       position: relative;
       z-index: 1;
       overflow: hidden;
+      transition: all .5s;
+
+      &:hover {
+        letter-spacing: 3px;
+        transition: all .5s;
+      }
 
       &:before {
         content: '';
@@ -265,25 +276,51 @@ $colors: (
         border-top: calc(50px - 4px) solid rgba(black, .07);
         transition: all .5s;
       }
-
-      &:hover:before, &:focus:before {
-        width: 45%;
-        left: 0;
-        transition: all .5s;
-      }
     }
 
-    &:hover .border1:after, &:hover .border1:before {
+    &:hover > button:before, &:focus > button:before {
+      width: 40%;
+      left: 0;
+      transition: all .5s;
+    }
+
+    &:hover .border-btns:after, &:hover .border-btns:before {
       transition: all .5s;
       width: calc(100% + 4px);
       height: calc(100% + 4px);
     }
 
+
+    &:nth-child(2) .border-btns:before {
+      border-top: 2px solid map_get($colors, c2);
+      border-left: 2px solid map_get($colors, c2);
+    }
+    &:nth-child(2) .border-btns:after {
+      border-bottom: 2px solid map_get($colors, c2);
+      border-right: 2px solid map_get($colors, c2);
+    }
+    &:nth-child(3) .border-btns:before {
+      border-top: 2px solid map_get($colors, c3);
+      border-left: 2px solid map_get($colors, c3);
+    }
+    &:nth-child(3) .border-btns:after {
+      border-bottom: 2px solid map_get($colors, c3);
+      border-right: 2px solid map_get($colors, c3);
+    }
+    &:nth-child(4) .border-btns:before {
+      border-top: 2px solid map_get($colors, c4);
+      border-left: 2px solid map_get($colors, c4);
+    }
+    &:nth-child(4) .border-btns:after {
+      border-bottom: 2px solid map_get($colors, c4);
+      border-right: 2px solid map_get($colors, c4);
+    }
   }
 }
 
-.border1 {
-  &:before, &:after {
+.border-btns {
+
+  &:before {
     content: '';
     position: absolute;
     top: -4px;
@@ -294,39 +331,48 @@ $colors: (
     height: 0;
     //width: calc(100% + 4px);
     //height: calc(100% + 4px);
-    border-top: 2px solid tomato;
-    border-left: 2px solid tomato;
+    border-top: 2px solid map_get($colors, c1);
+    border-left: 2px solid map_get($colors, c1);
     border-bottom: 2px solid transparent;
     border-right: 2px solid transparent;
   }
   &:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    background-color: transparent;
+    transition: all .5s;
+    width: 0;
+    height: 0;
     border-top: 2px solid transparent;
-    border-bottom: 2px solid tomato;
+    border-bottom: 2px solid map_get($colors, c1);
     border-left: 2px solid transparent;
-    border-right: 2px solid tomato;
+    border-right: 2px solid map_get($colors, c1);
   }
 }
-
-
-
 
 .container-content > div {
   span {
     width: 100%;
     height: 100%;
     display: block;
-    background-color: map_get($colors, c1);
+    //background-color: map_get($colors, c1);
+    background: linear-gradient(135deg , map_get($colors, c1) , lighten(map_get($colors, c1), 20%));
     opacity: 0;
   }
 
   &:nth-child(3) > span {
-    background-color: map_get($colors, c2);
+    //background-color: map_get($colors, c2);
+    background: linear-gradient(45deg , map_get($colors, c2) , lighten(map_get($colors, c2), 20%));
   }
   &:nth-child(4) > span {
-    background-color: map_get($colors, c3);
+    //background-color: map_get($colors, c3);
+    background: linear-gradient(-135deg , map_get($colors, c3) , lighten(map_get($colors, c3), 20%));
   }
   &:nth-child(5) > span {
-    background-color: map_get($colors, c4);
+    //background-color: map_get($colors, c4);
+    background: linear-gradient(-45deg , map_get($colors, c4) , lighten(map_get($colors, c4), 20%));
   }
 }
 
