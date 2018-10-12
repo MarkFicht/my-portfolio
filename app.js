@@ -16,6 +16,9 @@ $(document).ready( function () {
 
         if (leftTop.hasClass('left-top-move')) {
 
+            $('.blur').css('filter', 'blur(0px)');
+            $('.container-content').css('box-shadow', '0 0 20px black');
+
             leftTop.removeClass('left-top-move');
             leftTop.children('span').removeClass('animationCube');
 
@@ -31,6 +34,9 @@ $(document).ready( function () {
             content.removeClass('animationContent');
         }
         else {
+
+            $('.blur').css('filter', 'blur(4px)');
+            $('.container-content').css('box-shadow', '0 0 50px black, 0 0 30px black');
 
             leftTop.addClass('left-top-move');
             leftTop.children('span').addClass('animationCube');

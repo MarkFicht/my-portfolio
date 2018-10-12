@@ -1,5 +1,5 @@
 $bgImg: url("img/bg2.jpg");
-$timeAnime: 1.5s;
+$timeAnime: 2s;
 
 $colors: (
   c1: tomato,
@@ -84,7 +84,9 @@ $colors: (
   background-size: 2200px;
   background-repeat: no-repeat;
   background-position: center;
-  filter: blur(5px);
+  //filter: blur(5px);
+  filter: blur(0);
+  transition: all $timeAnime/2;
 }
 
 .cloud {
@@ -99,7 +101,7 @@ $colors: (
   filter: blur(5px);
   animation: cloud 60s linear infinite;
   z-index: 1;
-  opacity: .2;
+  opacity: .15;
 }
 
 .container {
@@ -127,13 +129,14 @@ $colors: (
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(black, .2);
+  background-color: rgba(white, .5);
   font-size: 30px;
   font-weight: bold;
   letter-spacing: 3px;
   z-index: 4;
   outline: none;
   cursor: pointer;
+  border-radius: 50px;
   //border: 5px solid #262626;
   //color: #262626;
   transition: .5s;
@@ -156,22 +159,15 @@ $colors: (
   background-size: 2200px;
   background-repeat: no-repeat;
   background-position: center;
-
-  &:before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 30px black, 0 0 20px black;
-    opacity: .75;
-  }
+  transition: all $timeAnime/2;
+  //box-shadow: 0 0 50px black, 0 0 30px black;
+  box-shadow: 0 0 20px black;
 }
 
 .content {
   width: 100%;
   height: 100%;
-  background-color: rgba(#fff, .9);
+  background-color: rgba(#fff, .95);
   display: flex;
   justify-content: center;
   align-items: center;
