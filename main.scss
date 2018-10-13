@@ -1,4 +1,4 @@
-$bgImg: url("img/bg2.jpg");
+$bgImg: url("img/bg3.jpg");
 $timeAnime: 2s;
 
 $colors: (
@@ -30,6 +30,11 @@ $colors: (
   50% { color: #0181a1; border: 2px solid #0181a1; }
   100% { color: #7e0fff; border: 2px solid #7e0fff; }
 }
+@keyframes bgColor {
+  0% { background: #7e0fff; }
+  50% { background: #0181a1; }
+  100% { background: #7e0fff; }
+}
 
 // **************** Basic
 
@@ -57,7 +62,7 @@ $colors: (
   background-position: center;
   //filter: blur(5px);
   filter: blur(0);
-  transition: all $timeAnime/2;
+  transition: all $timeAnime;
 }
 .cloud {
   position: absolute;
@@ -114,7 +119,7 @@ $colors: (
 
 @mixin cubes4() {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   width: 50%;
   height: 50%;
   overflow: hidden;
@@ -153,13 +158,13 @@ $colors: (
     background: linear-gradient(135deg , map_get($colors, c1) , lighten(map_get($colors, c1), 15%));
     opacity: 0;
   }
-  &:nth-child(3) > span {
+  &:nth-child(4) > span {
     background: linear-gradient(45deg , map_get($colors, c2) , lighten(map_get($colors, c2), 15%));
   }
-  &:nth-child(4) > span {
+  &:nth-child(5) > span {
     background: linear-gradient(-135deg , map_get($colors, c3) , lighten(map_get($colors, c3), 15%));
   }
-  &:nth-child(5) > span {
+  &:nth-child(6) > span {
     background: linear-gradient(-45deg , map_get($colors, c4) , lighten(map_get($colors, c4), 15%));
   }
 }
@@ -177,7 +182,7 @@ $colors: (
   background-size: 2200px;
   background-repeat: no-repeat;
   background-position: center;
-  transition: all $timeAnime/2;
+  transition: all $timeAnime;
   //box-shadow: 0 0 50px black, 0 0 30px black;
   box-shadow: 0 0 20px black;
 }
@@ -185,7 +190,7 @@ $colors: (
 //--- Start Btn
 #btn-start {
   position: absolute;
-  z-index: 4;
+  z-index: 10;
   top: 33%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -194,6 +199,7 @@ $colors: (
   display: flex;
   align-items: center;
   justify-content: center;
+  //background-color: white;
   background-color: rgba(white, .5);
   font-size: 30px;
   font-weight: bold;
@@ -204,13 +210,31 @@ $colors: (
   //border: 5px solid #262626;
   //color: #262626;
   transition: .5s;
-  box-shadow: 0 0 40px black, 0 0 5px black;
   animation: textColor 5s linear infinite;
+  box-shadow: 0 0 30px black;
 
-  &:hover, &:focus {
+  & ~ span {
+    width: 250px;
+    height: 100px;
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: bgColor 5s linear infinite;
+    border-radius: 50px;
+    filter: blur(35px);
+    z-index: 9;
+    transition: .5s;
+  }
+
+  &:hover, &:focus,
+  &:hover ~ span, &:focus ~ span
+  {
     transform: translate(-50%, -50%) scale(1.1);
   }
-  &:active {
+  &:active,
+  &:active ~ span
+  {
     transform: translate(-50%, -50%) scale(1.05);
   }
 }
@@ -221,7 +245,7 @@ $colors: (
   opacity: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(#fff, .95);
+  background-color: rgba(#fff, .9);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -301,6 +325,7 @@ $colors: (
     left: -50px;
     height: 100%;
     width: 0;
+    /* More creative then 'skewX' :) */
     //background-color: rgba(black, .07);
     border-left: 0 solid transparent;
     border-right: 50px solid transparent;
@@ -388,64 +413,40 @@ button#submenu-contact {
     &:first-child {
       margin-top: 5px;
     }
-
-    //&:hover .border-btns:after, &:hover .border-btns:before {
-    //  transition: all .5s;
-    //  width: calc(100% + 4px);
-    //  height: calc(100% + 4px);
-    //}
-    //&:nth-child(2) .border-btns:before {
-    //  border-top: 2px solid map_get($colors, c2);
-    //  border-left: 2px solid map_get($colors, c2);
-    //}
-    //&:nth-child(2) .border-btns:after {
-    //  border-bottom: 2px solid map_get($colors, c2);
-    //  border-right: 2px solid map_get($colors, c2);
-    //}
-    //&:nth-child(3) .border-btns:before {
-    //  border-top: 2px solid map_get($colors, c3);
-    //  border-left: 2px solid map_get($colors, c3);
-    //}
-    //&:nth-child(3) .border-btns:after {
-    //  border-bottom: 2px solid map_get($colors, c3);
-    //  border-right: 2px solid map_get($colors, c3);
-    //}
-    //&:nth-child(4) .border-btns:before {
-    //  border-top: 2px solid map_get($colors, c4);
-    //  border-left: 2px solid map_get($colors, c4);
-    //}
-    //&:nth-child(4) .border-btns:after {
-    //  border-bottom: 2px solid map_get($colors, c4);
-    //  border-right: 2px solid map_get($colors, c4);
-    //}
   }
 }
 
-////////////////////////////
-.first-section {
+// **************** Display Sections
+
+.display-section1 {
   transform: rotateX(0deg) rotate(0deg) translate(0);
   width: 100%;
   height: 100%;
+  z-index: 3;
 }
-
-
-
-//////////////////
-#btn-back {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  background-color: red;
+.display-section2 {
+  transform: rotateY(0deg) rotate(0deg) translate(0);
+  width: 100%;
+  height: 100%;
   z-index: 3;
 }
 
 .display-submenu {
   display: none;
   position: absolute;
+  z-index: 3;
+  border: 1px solid red;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: 1px solid red;
+}
+
+//--- Return To Btns
+#btn-back {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  background-color: red;
   z-index: 3;
 }

@@ -5,16 +5,24 @@ $(document).ready( function () {
     console.log('%c ------ DOM loaded ------', 'color: green; font-weight: bold;');
 
     const leftTop = $('.left-top');
-    const btnOMnie = $('#submenu-me');
-    const leftBot = $('.left-bottom');
-    const rightTop = $('.right-top');
-    const rightBot = $('.right-bottom');
+    const btnMe = $('#submenu-me');
 
+    const leftBot = $('.left-bottom');
+    const btnSkills = $('#submenu-skills');
+
+    const rightTop = $('.right-top');
+    const btnProj = $('#submenu-projects');
+
+    const rightBot = $('.right-bottom');
+    const btnContact = $('#submenu-contact');
+
+    //---
     const btnStart = $('#btn-start');
     const content = $('.content');
 
     const btnBack = $('#btn-back');
 
+    //---
     btnStart.click( function () {
 
         if (leftTop.hasClass('left-top-move')) {
@@ -45,7 +53,7 @@ $(document).ready( function () {
                 rightBot.addClass('right-bottom-move');
             }, 1100);
 
-            $('.blur').css('filter', 'blur(4px)');
+            $('.blur').css('filter', 'blur(5px)');
             $('.container-content').css('box-shadow', '0 0 50px black, 0 0 30px black');
 
             leftTop.children('span').addClass('visibility');
@@ -53,26 +61,40 @@ $(document).ready( function () {
             leftBot.children('span').addClass('visibility');
             rightBot.children('span').addClass('visibility');
             content.addClass('visibilityContent');
+
+            // btnStart.css('display', 'none');
+            // $('#btn-start ~ span').css('display', 'none');
         }
     })
 
-    btnOMnie.click( function () {
-
-        leftTop.removeClass('left-top-move');
-        leftTop.addClass('first-section');
-
-
-
-    })
-
     btnBack.click( function () {
+        leftTop.removeClass('display-section1');
+        leftBot.removeClass('display-section2');
+        rightTop.removeClass('display-section2');
+        rightBot.removeClass('display-section1');
 
         leftTop.addClass('left-top-move');
-        leftTop.removeClass('first-section');
+        leftBot.addClass('left-bottom-move');
+        rightTop.addClass('right-top-move');
+        rightBot.addClass('right-bottom-move');
+    })
 
-
-
-
+    //---
+    btnMe.click( function () {
+        leftTop.removeClass('left-top-move');
+        leftTop.addClass('display-section1');
+    })
+    btnSkills.click( function () {
+        leftBot.removeClass('left-bottom-move');
+        leftBot.addClass('display-section2');
+    })
+    btnProj.click( function () {
+        rightTop.removeClass('right-top-move');
+        rightTop.addClass('display-section2');
+    })
+    btnContact.click( function () {
+        rightBot.removeClass('right-bottom-move');
+        rightBot.addClass('display-section1');
     })
 
 })
