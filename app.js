@@ -1,15 +1,12 @@
 import 'jquery';
 import './main.scss';
-// import 'font-awesome/scss/font-awesome.scss';
-export default {
-    name: "FontAwesome"
-};
 
 $(document).ready( function () {
     console.log('%c ------ DOM loaded ------', 'color: green; font-weight: bold;');
 
     const leftTop = $('.left-top');
     const btnMe = $('#submenu-me');
+    const displayMe = $('#select-me');
 
     const leftBot = $('.left-bottom');
     const btnSkills = $('#submenu-skills');
@@ -22,9 +19,10 @@ $(document).ready( function () {
 
     //---
     const btnStart = $('#btn-start');
-    const content = $('.content');
-
     const btnBack = $('#btn-back');
+
+    const selectContent = $('.select-content');
+    const displayContent = $('.display-content');
 
     //---
     btnStart.click( function () {
@@ -46,7 +44,7 @@ $(document).ready( function () {
             rightBot.removeClass('right-bottom-move');
             rightBot.children('span').removeClass('visibility');
 
-            content.removeClass('visibilityContent');
+            selectContent.removeClass('visibilityContent');
         }
         else {
 
@@ -64,10 +62,10 @@ $(document).ready( function () {
             rightTop.children('span').addClass('visibility');
             leftBot.children('span').addClass('visibility');
             rightBot.children('span').addClass('visibility');
-            content.addClass('visibilityContent');
+            selectContent.addClass('visibilityContent');
 
-            // btnStart.css('display', 'none');
-            // $('#btn-start ~ span').css('display', 'none');
+            btnStart.css('display', 'none');
+            $('#btn-start ~ span').css('display', 'none');
         }
     })
 
@@ -81,24 +79,34 @@ $(document).ready( function () {
         leftBot.addClass('left-bottom-move');
         rightTop.addClass('right-top-move');
         rightBot.addClass('right-bottom-move');
+
+        displayContent.css('display', 'none');
     })
 
     //---
     btnMe.click( function () {
         leftTop.removeClass('left-top-move');
         leftTop.addClass('display-section1');
+
+        displayContent.css('display', 'block');
     })
     btnSkills.click( function () {
         leftBot.removeClass('left-bottom-move');
         leftBot.addClass('display-section2');
+
+        displayContent.css('display', 'block');
     })
     btnProj.click( function () {
         rightTop.removeClass('right-top-move');
         rightTop.addClass('display-section2');
+
+        displayContent.css('display', 'block');
     })
     btnContact.click( function () {
         rightBot.removeClass('right-bottom-move');
         rightBot.addClass('display-section1');
+
+        displayContent.css('display', 'block');
     })
 
 })
