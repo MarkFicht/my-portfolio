@@ -74,7 +74,7 @@ $colors: (
 .cloud {
   position: absolute;
   z-index: 1;
-  opacity: .2;
+  opacity: .3;
   height: 100vh;
   width: 100%;
   top: 0;
@@ -440,9 +440,10 @@ button#submenu-contact {
 
 //--- Return To Btns
 @keyframes showBtnBack {
-  from { transform: scale(0) translate(-50%) }
-  70% { transform: scale(1.2) translate(-50%) }
-  to { transform: scale(1) translate(-50%) }
+  from { transform: scale(0) translate(-50%) rotate(360deg) }
+  70% { transform: scale(1.3) translate(-50%) rotate(-20deg) }
+  75% { transform: scale(1.3) translate(-50%) rotate(-20deg) }
+  to { transform: scale(1) translate(-50%) rotate(0) }
 }
 
 #btn-back {
@@ -454,7 +455,7 @@ button#submenu-contact {
   background-color: transparent;
   outline: none;
   border: none;
-  animation: showBtnBack .7s 1s ease-in forwards;
+  animation: showBtnBack .7s .7s ease-in forwards;
 
   .fa-reply {
     font-size: 5rem;
@@ -464,7 +465,7 @@ button#submenu-contact {
 
 .display-content {
   display: none;
-  border: 3px solid red;
+  //border: 3px solid red;
   position: absolute;
   overflow: hidden;
   z-index: 3;
@@ -476,17 +477,23 @@ button#submenu-contact {
 
 @keyframes showSelected {
   from { top: -1000px; }
+  90% { top: 30px; }
+  94% { top: -15px; }
+  98% { top: 5px; }
   to { top: 0; }
 }
 
-#select-me, #select-skills, #select-projects, #select-contacts {
+.show-selected {
+  animation: showSelected 1.25s .15s ease-in forwards;
+}
+
+#select-me, #select-skills, #select-projects, #select-contact {
   position: absolute;
   top: -1000px;
-  animation: showSelected 1.25s .25s ease-in forwards;
+  //animation: showSelected 1.25s .15s ease-in forwards;
   width: 100%;
   height: 100%;
   z-index: 3;
-  //display: none;
   display: flex;
   justify-content: center;
   text-align: center;

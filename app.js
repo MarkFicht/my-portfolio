@@ -10,19 +10,22 @@ $(document).ready( function () {
 
     const leftBot = $('.left-bottom');
     const btnSkills = $('#submenu-skills');
+    const displaySkills = $('#select-skills');
 
     const rightTop = $('.right-top');
     const btnProj = $('#submenu-projects');
+    const displayProj = $('#select-projects');
 
     const rightBot = $('.right-bottom');
     const btnContact = $('#submenu-contact');
+    const displayContact = $('#select-contact');
 
     //---
     const btnStart = $('#btn-start');
     const btnBack = $('#btn-back');
 
     const selectContent = $('.select-content');
-    const displayContent = $('.display-content');
+    const contentDisplay = $('.display-content');
 
     //---
     btnStart.click( function () {
@@ -80,7 +83,11 @@ $(document).ready( function () {
         rightTop.addClass('right-top-move');
         rightBot.addClass('right-bottom-move');
 
-        displayContent.css('display', 'none');
+        contentDisplay.css('display', 'none');
+        displayMe.removeClass('show-selected');
+        displaySkills.removeClass('show-selected');
+        displayProj.removeClass('show-selected');
+        displayContact.removeClass('show-selected');
     })
 
     //---
@@ -88,25 +95,29 @@ $(document).ready( function () {
         leftTop.removeClass('left-top-move');
         leftTop.addClass('display-section1');
 
-        displayContent.css('display', 'block');
+        contentDisplay.css('display', 'block');
+        displayMe.addClass('show-selected');
     })
     btnSkills.click( function () {
         leftBot.removeClass('left-bottom-move');
         leftBot.addClass('display-section2');
 
-        displayContent.css('display', 'block');
+        contentDisplay.css('display', 'block');
+        displaySkills.addClass('show-selected');
     })
     btnProj.click( function () {
         rightTop.removeClass('right-top-move');
         rightTop.addClass('display-section2');
 
-        displayContent.css('display', 'block');
+        contentDisplay.css('display', 'block');
+        displayProj.addClass('show-selected');
     })
     btnContact.click( function () {
         rightBot.removeClass('right-bottom-move');
         rightBot.addClass('display-section1');
 
-        displayContent.css('display', 'block');
+        contentDisplay.css('display', 'block');
+        displayContact.addClass('show-selected');
     })
 
 })
