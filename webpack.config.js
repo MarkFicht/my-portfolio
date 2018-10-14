@@ -103,7 +103,7 @@ module.exports = function(env) {
     config.module.rules.push(images);
 
     const fonts = {
-        test: /\.(eot|ttf|woff|woff2)$/,
+        test: /\.(eot|ttf|svg|woff|woff2)$/,
         use: {
             loader: 'file-loader',
             options: {

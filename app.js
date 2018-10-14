@@ -1,5 +1,9 @@
 import 'jquery';
 import './main.scss';
+// import 'font-awesome/scss/font-awesome.scss';
+export default {
+    name: "FontAwesome"
+};
 
 $(document).ready( function () {
     console.log('%c ------ DOM loaded ------', 'color: green; font-weight: bold;');
