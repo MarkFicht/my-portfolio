@@ -486,7 +486,7 @@ button#submenu-contact {
 
 #btn-back {
   position: absolute;
-  top: 20px;
+  top: 15px;
   left: 50%;
   transform: scale(0) translate(-50%);
   z-index: 5;
@@ -535,16 +535,19 @@ button#submenu-contact {
   height: 100%;
   z-index: 3;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   text-align: center;
   flex-direction: column;
 
   & > header {
-    padding-top: 80px;
-    height: 20%;
+    //padding-top: 80px;
+    height: 15%;
     letter-spacing: 2px;
     font-weight: bold;
     font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
   }
 
   p {
@@ -553,24 +556,167 @@ button#submenu-contact {
   }
 }
 
-/////////////////////////////////////
+///////////////////////////////////// Section 2 - Skills
+.fix-div-skills {
+  display: block;
+  height: 7%;
+}
+
+.div-skills {
+  width: 70%;
+  height: 70%;
+  position: relative;
+  left: 15%;
+  display: flex;
+  flex-wrap: wrap;
+
+  & > div {
+    //border: 1px solid black;
+    width: 33.33%;
+    height: 33.33%;
+    //background-image: url("img/i-html.png");
+    //background-size: contain;
+    //background-position: center;
+    //background-repeat: no-repeat;
+    transition: .7s;
+    position: relative;
+    perspective: 100px;
+
+    &:after {
+      content: '';
+      background-image: url("img/i-html.png");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: .7s;
+      backface-visibility: hidden;
+    }
+    &:before {
+      content: 'HTML';
+      position: absolute;
+      font-weight: bold;
+      top: 33.33%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      font-size: 3rem;
+      transform: rotateY(-180deg) translate(-50%);
+      transition: .7s;
+      backface-visibility: hidden;
+    }
+
+    &:hover {
+      &:after {
+        transform: rotateY(180deg);
+      }
+      &:before {
+        transform: rotateY(0) translate(-50%);
+      }
+    }
+
+    &:nth-child(2) {
+      &:after {
+        background-image: url("img/i-css.png");
+      }
+      &:before {
+        content: 'CSS';
+      }
+    }
+    &:nth-child(3) {
+      &:after {
+        background-image: url("img/i-js.png");
+      }
+      &:before {
+        content: 'JS';
+      }
+    }
+    &:nth-child(4) {
+      &:after {
+        background-image: url("img/i-jq.png");
+      }
+      &:before {
+        content: 'jQ, AJAX';
+      }
+    }
+    &:nth-child(5) {
+      &:after {
+        background-image: url("img/i-react.png");
+      }
+      &:before {
+        content: 'React';
+      }
+    }
+    &:nth-child(6) {
+      &:after {
+        background-image: url("img/i-sass.png");
+      }
+      &:before {
+        content: 'SASS';
+      }
+    }
+    &:nth-child(7) {
+      &:after {
+        background-image: url("img/i-gulp.png");
+      }
+      &:before {
+        content: 'Gulp';
+      }
+      transform: scale(.8);
+      &:hover {
+        transform: scale(1);
+      }
+    }
+    &:nth-child(8) {
+      perspective: 170px;
+
+      &:after {
+        background-image: url("img/i-firebase.png");
+      }
+      &:before {
+        content: 'Firebase';
+      }
+      transform: scale(.85);
+      &:hover {
+        transform: scale(1);
+      }
+    }
+    &:nth-child(9) {
+      perspective: 170px;
+
+      &:after {
+        background-image: url("img/i-webpack.png");
+      }
+      &:before {
+        content: 'Webpack';
+      }
+      transform: scale(.85);
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+///////////////////////////////////// Section3 - Projects
 .div-projects {
   width: 100%;
   height: 80%;
   position: relative;
 
-  //&:after {
-  //  content: 'Wybierz zakladke';
-  //  width: 60%;
-  //  height: 80%;
-  //  position: absolute;
-  //  left: 20%;
-  //  top: 20px;
-  //  border: 1px solid red;
-  //  opacity: .7;
-  //  background-color: #FFA833;
-  //  transition: all .5s;
-  //}
+  &:after {
+    content: '';
+    width: 70%;
+    height: 80%;
+    position: absolute;
+    left: 15%;
+    top: 20px;
+    background-color: transparent;
+  }
 }
 
 #proj1, #proj2, #proj3 {
@@ -580,7 +726,7 @@ button#submenu-contact {
   top: 20px;
   left: 15%;
   transform-style: preserve-3d;
-  transition: .5s;
+  transition: all .5s;
   background-color: #FFA833;
   display: flex;
   justify-content: flex-start;
@@ -672,10 +818,12 @@ button#submenu-contact {
     background-color: lighten(#FFA833, 3%);
 
     & > header {
+      transition: opacity .7s .2s;
       opacity: 1;
     }
 
     & .project-img {
+      transition: opacity .7s .2s;
       opacity: 1;
     }
 
