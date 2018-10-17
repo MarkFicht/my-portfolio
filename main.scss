@@ -553,110 +553,137 @@ button#submenu-contact {
   }
 }
 
+/////////////////////////////////////
 .div-projects {
   width: 100%;
   height: 80%;
   position: relative;
 
-  &:after {
-    content: 'Wybierz zakladke';
-    width: 60%;
-    height: 80%;
-    position: absolute;
-    left: 20%;
-    top: 20px;
-    border: 1px solid red;
-    opacity: .7;
-    background-color: #FFA833;
+  //&:after {
+  //  content: 'Wybierz zakladke';
+  //  width: 60%;
+  //  height: 80%;
+  //  position: absolute;
+  //  left: 20%;
+  //  top: 20px;
+  //  border: 1px solid red;
+  //  opacity: .7;
+  //  background-color: #FFA833;
+  //  transition: all .5s;
+  //}
+}
+
+#proj1, #proj2, #proj3 {
+  position: absolute;
+  width: 70%;
+  height: 80%;
+  top: 20px;
+  left: 15%;
+  transform-style: preserve-3d;
+  transition: .5s;
+  background-color: #FFA833;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  & > header {
+    padding-top: 15px;
+    height: 15%;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 3rem;
     transition: all .5s;
+    opacity: 0;
   }
 
-  & > div {
-    position: absolute;
-    width: 60%;
-    height: 80%;
-    top: 20px;
-    left: 20%;
-    transform-style: preserve-3d;
-    transition: .5s;
-    background-color: #FFA833;
+  .project-img {
+    border: 1px solid red;
+    width: 80%;
+    height: 75%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: all .5s;
+    letter-spacing: 2px;
+    opacity: 0;
 
-    & > header {
-      padding-top: 25px;
-      height: 20%;
-      letter-spacing: 2px;
-      font-weight: bold;
-      font-size: 3rem;
-    }
-
-    .project-img {
-      border: 1px solid red;
-      width: 80%;
-      height: 70%;
+    .project-text {
+      height: 60%;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      transition: .5s;
-      letter-spacing: 2px;
-      opacity: 0;
-
-      .demo, .code {
-        width: 80%;
-        margin-bottom: 10px;
-        height: 50px;
-        border: 1px solid black;
-        border-radius: 10px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        letter-spacing: 5px;
-        cursor: pointer;
+      & > p i, & > p b {
+        color: white;
       }
+    }
+
+    .demo, .code {
+      width: 80%;
+      margin-bottom: 15px;
+      height: 15%;
+      background-color: transparent;
+      outline: none;
+      border: 2px solid #262626;
+      border-radius: 10px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: 5px;
+      cursor: pointer;
+      transition: all .5s;
+
+      &:hover {
+        color: #fefefe;
+        border: 2px solid #fefefe;
+      }
+    }
+  }
+
+  //
+  &:before {
+    content: 'React';
+    position: absolute;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 42px;
+    width: 85px;
+    height: 50px;
+    transform: rotate(90deg) translateZ(-1px);
+    top: 40px;
+    right: -60px;
+    background-color: #FFA833;
+    border-radius: 10px 10px 0 0;
+    transition: all .5s;
+  }
+  &:nth-child(2):before {
+    content: 'SASS';
+    top: 140px;
+  }
+  &:nth-child(3):before {
+    content: 'jQuery';
+    top: 240px;
+  }
+
+  //
+  &:hover {
+    z-index: 3;
+    box-shadow: 0 0 20px #262626;
+    background-color: lighten(#FFA833, 3%);
+
+    & > header {
+      opacity: 1;
+    }
+
+    & .project-img {
+      opacity: 1;
     }
 
     &:before {
-      content: 'React';
-      position: absolute;
-      font-size: 22px;
-      font-weight: bold;
-      line-height: 42px;
-      width: 85px;
-      height: 50px;
-      transform: rotate(90deg) translateZ(-1px);
-      top: 40px;
-      right: -60px;
-      background-color: #FFA833;
-      border-radius: 10px 10px 0 0;
-      transition: all .5s;
-    }
-    &:nth-child(2):before {
-      content: 'SASS';
-      top: 140px;
-    }
-    &:nth-child(3):before {
-      content: 'jQuery';
-      top: 240px;
-    }
-
-
-    &:hover {
-      z-index: 3;
       cursor: pointer;
-      box-shadow: 0 0 20px #262626;
+      box-shadow: 0 0 10px #262626;
       background-color: lighten(#FFA833, 3%);
-
-      &:before {
-        box-shadow: 0 0 10px #262626;
-        background-color: lighten(#FFA833, 3%);
-      }
-
-      & .project-img {
-        opacity: 1;
-      }
+      color: #fefefe;
     }
   }
 }
