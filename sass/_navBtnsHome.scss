@@ -1,0 +1,141 @@
+//**************** NAV & BTNS
+
+//--- MIXIN: 4 Buttons
+@mixin buttonsX4($bg-col, $border) {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  width: 300px;
+  height: 50px;
+  cursor: pointer;
+  outline: none;
+  background-color: $bg-col;
+  border: $border;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all .5s;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    height: 100%;
+    width: 0;
+    /* More creative then 'skewX' :) */
+    //background-color: rgba(black, .07);
+    border-left: 0 solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 0 solid transparent;
+    border-top: calc(50px - 4px) solid rgba(black, .07);
+    transition: all .5s;
+  }
+
+  &:hover {
+    letter-spacing: 3px;
+    transition: all .5s;
+
+    &:before {
+      width: 40%;
+      left: 0;
+      transition: all .5s;
+    }
+
+    & ~ .border-btns:after, & ~ .border-btns:before {
+      transition: all .5s;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+    }
+  }
+}
+
+//--- MIXIN: Border For Btns
+@mixin borderX4($borderHover) {
+  &:before {
+    content: '';
+    transition: all .5s;
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 0;
+    height: 0;
+    //width: calc(100% + 4px);
+    //height: calc(100% + 4px);
+    border-top: $borderHover;
+    border-left: $borderHover;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+  }
+  &:after {
+    content: '';
+    transition: all .5s;
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    background-color: transparent;
+    width: 0;
+    height: 0;
+    border-bottom: $borderHover;
+    border-right: $borderHover;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+  }
+}
+
+//---
+button#submenu-me {
+  @include buttonsX4(lighten(map_get($colors, c1), 20%), 2px solid map_get($colors, c1));
+
+  & ~ .border-btns {
+    @include borderX4(2px solid map_get($colors, c1))
+  }
+}
+button#submenu-skills {
+  @include buttonsX4(lighten(map_get($colors, c2), 20%), 2px solid map_get($colors, c2));
+
+  & ~ .border-btns {
+    @include borderX4(2px solid map_get($colors, c2))
+  }
+}
+button#submenu-projects {
+  @include buttonsX4(lighten(map_get($colors, c3), 20%), 2px solid map_get($colors, c3));
+
+  & ~ .border-btns {
+    @include borderX4(2px solid map_get($colors, c3))
+  }
+}
+button#submenu-contact {
+  @include buttonsX4(lighten(map_get($colors, c4), 20%), 2px solid map_get($colors, c4));
+
+  & ~ .border-btns {
+    @include borderX4(2px solid map_get($colors, c4))
+  }
+}
+
+//--- NAV for 4 btns
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+  width: 100%;
+  height: 50%;
+
+  & > ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  & > ul > li {
+    margin-top: 12px;
+    list-style: none;
+    position: relative;
+    z-index: 3;
+
+    &:first-child {
+      margin-top: 5px;
+    }
+  }
+}

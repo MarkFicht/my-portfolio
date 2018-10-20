@@ -1,0 +1,87 @@
+//**************** TILES x 4
+.visibility {
+  animation: visibility $timeAnime ease-out forwards;
+}
+.visibilityContent {
+  animation: visibilityContent $timeAnime ease-out forwards;
+}
+
+//---
+.left-top-move {
+  transform: rotateX(80deg) rotate(30deg) translateY(-50%);
+}
+.left-bottom-move {
+  transform: rotateY(80deg) rotate(30deg) translateX(-50%);
+}
+.right-top-move {
+  transform: rotateY(-80deg) rotate(30deg) translateX(50%);
+}
+.right-bottom-move {
+  transform: rotateX(-80deg) rotate(30deg) translateY(50%);
+}
+
+@mixin cubes4() {
+  position: absolute;
+  z-index: 4;
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+  transition: $timeAnime/2;
+}
+.left-top {
+  @include cubes4();
+  top: 0;
+  left: 0;
+  transform-origin: top;
+}
+.left-bottom {
+  @include cubes4();
+  bottom: 0;
+  left: 0;
+  transform-origin: left;
+}
+.right-top {
+  @include cubes4();
+  top: 0;
+  right: 0;
+  transform-origin: right;
+}
+.right-bottom {
+  @include cubes4();
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom;
+}
+
+//---
+.container-content > div {
+  span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: linear-gradient(135deg , map_get($colors, c1) , lighten(map_get($colors, c1), 15%));
+    opacity: 0;
+  }
+  &:nth-child(4) > span {
+    background: linear-gradient(45deg , map_get($colors, c2) , lighten(map_get($colors, c2), 15%));
+  }
+  &:nth-child(5) > span {
+    background: linear-gradient(-135deg , map_get($colors, c3) , lighten(map_get($colors, c3), 15%));
+  }
+  &:nth-child(6) > span {
+    background: linear-gradient(-45deg , map_get($colors, c4) , lighten(map_get($colors, c4), 15%));
+  }
+}
+
+//**************** ANIMATION
+@keyframes visibility {
+  from { opacity: 0; }
+  50% { opacity: 1; }
+  to { opacity: 1; }
+}
+@keyframes visibilityContent {
+  from { opacity: 0; }
+  49% { opacity: 0; }
+  50% { opacity: 1; }
+  to { opacity: 1; }
+}

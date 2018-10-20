@@ -1,0 +1,77 @@
+//**************** HOME CONTENT & H1
+.select-content {
+  z-index: 2;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#fff, .9);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header-home {
+  width: 100%;
+  height: 47%;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 40px;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 50%;
+    width: 70%;
+    height: 4px;
+    background-color: #262626;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 4rem;
+    //-webkit-text-stroke: 1px #262626;
+
+    &:before {
+      content: attr(data-text);
+      position: absolute;
+      background: linear-gradient(-60deg,
+              #262626 38%, #595959 38%,
+              #595959 40%, #262626 40%,
+              #262626 41%, #595959 41%,
+              #595959 48%, #262626 48%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200%;
+      animation: shadowText 5s linear infinite;
+    }
+  }
+
+  p {
+    font-size: 2rem;
+    padding: 0 50px 10px;
+    text-align: center;
+    font-weight: normal;
+
+    & .fa-angellist {
+      font-size: 2.5rem;
+      font-weight: normal;
+    }
+  }
+}
+
+//**************** ANIMATION
+@keyframes shadowText {
+  from { background-position: 0 0; }
+  to { background-position: 200% 0; }
+}

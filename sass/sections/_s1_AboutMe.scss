@@ -1,0 +1,20 @@
+//**************** Section 1 - About me
+.my-picture {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 2px solid black;
+  margin: 0 auto;
+}
+
+.div-about-me {
+  height: 65%;
+  width: 90%;
+  //border: 1px solid red;
+  margin: 0 auto;
+
+  & > p {
+    letter-spacing: 1px;
+    font-weight: normal;
+  }
+}

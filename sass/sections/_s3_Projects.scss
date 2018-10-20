@@ -1,0 +1,133 @@
+//**************** Section 3 - Projects
+.div-projects {
+  width: 100%;
+  height: 80%;
+  position: relative;
+
+  &:after {
+    content: '';
+    width: 70%;
+    height: 80%;
+    position: absolute;
+    left: 15%;
+    top: 20px;
+    background-color: transparent;
+  }
+}
+
+#proj1, #proj2, #proj3 {
+  position: absolute;
+  width: 70%;
+  height: 80%;
+  top: 20px;
+  left: 15%;
+  transform-style: preserve-3d;
+  transition: all .5s;
+  background-color: #FFA833;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  & > header {
+    padding-top: 15px;
+    height: 15%;
+    letter-spacing: 2px;
+    font-size: 3rem;
+    transition: all .5s;
+    opacity: 0;
+  }
+
+  &:before {
+    content: 'React';
+    position: absolute;
+    font-size: 22px;
+    line-height: 42px;
+    width: 85px;
+    height: 50px;
+    transform: rotate(90deg) translateZ(-1px);
+    top: 40px;
+    right: -60px;
+    background-color: #FFA833;
+    border-radius: 10px 10px 0 0;
+    transition: all .5s;
+  }
+  &:nth-child(2):before {
+    content: 'SASS';
+    top: 140px;
+  }
+  &:nth-child(3):before {
+    content: 'jQuery';
+    top: 240px;
+  }
+
+  &:hover {
+    z-index: 3;
+    box-shadow: 0 0 20px #262626;
+    background-color: lighten(#FFA833, 3%);
+
+    & > header {
+      transition: opacity .7s .2s;
+      opacity: 1;
+    }
+
+    & .project-img {
+      transition: opacity .7s .2s;
+      opacity: 1;
+    }
+
+    &:before {
+      cursor: pointer;
+      box-shadow: 0 0 10px #262626;
+      background-color: lighten(#FFA833, 3%);
+      color: #fefefe;
+    }
+  }
+}
+
+.project-img {
+  border: 1px solid red;
+  width: 80%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all .5s;
+  letter-spacing: 2px;
+  opacity: 0;
+
+  .project-text {
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > p i {
+      color: #fefefe;
+      font-weight: normal;
+    }
+    & > p b {
+      color: #fefefe;
+    }
+  }
+
+  .demo, .code {
+    width: 80%;
+    margin-bottom: 15px;
+    height: 15%;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #262626;
+    border-radius: 10px;
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+    cursor: pointer;
+    transition: all .5s;
+
+    &:hover {
+      color: #fefefe;
+      border: 2px solid #fefefe;
+    }
+  }
+}
