@@ -1,4 +1,4 @@
-@media (max-width:320px) {
+@media (min-width:0px) {
   //Base
   :root {
     font-size: 6px;
@@ -20,7 +20,7 @@
     padding-top: 0;
 
     &:before {
-      bottom: -5px;
+      bottom: -6px;
       height: 2px;
     }
 
@@ -48,8 +48,332 @@
     height: 25px;
   }
 
+  //Displaying Section
+  #btn-back {
+    top: 3px;
+
+    .fa-reply {
+      font-size: 4rem;
+    }
+  }
+
+  #select-me,
+  #select-skills,
+  #select-projects,
+  #select-contact {
+
+    & > header {
+      font-size: 2.8rem;
+    }
+
+    p {
+      //
+    }
+  }
+
+  //Section1 - AboutMe
+  .my-picture {
+    width: 45px;
+    height: 45px;
+    margin-top: 7px;
+  }
+
+  .div-about-me {
+    width: 100%;
+    height: 70%;
+
+    & > p {
+      font-size: 1.75rem;
+      font-weight: bold;
+    }
+  }
+
+  //Section2 - Skills
+  .div-skills > div:before{
+    font-size: 2.4rem;
+  }
+
+  //Section3 - Projects
+  #proj1, #proj2, #proj3 {
+    top: 10px;
+
+    &:before {
+      font-size: 14px;
+      width: 60px;
+      height: 25px;
+      line-height: 22px;
+      right: -40px;
+      top: 25px;
+    }
+    &:nth-child(2):before {
+      top: 95px;
+    }
+    &:nth-child(3):before {
+      top: 165px;
+    }
+
+    & > header {
+      padding-top: 5px;
+    }
+  }
+
+  .project-img {
+    width: 85%;
+
+    .project-text {
+      height: 66%;
+
+      & > p {
+        font-size: 1.8rem;
+        margin: 0 10px !important;
+      }
+    }
+
+    .demo, .code {
+      height: 12%;
+      width: 70%;
+      margin-bottom: 5px;
+      font-size: 2rem;
+    }
+  }
+
+  //Section4 - Contact
+  .div-contact {
+
+    & > form {
+      padding-top: 5px;
+
+      input[type='text'],
+      input[type='email'] {
+        height: 28px;
+        align-self: flex-start;
+        flex-direction: row;
+        justify-self: flex-start;
+      }
+
+      & label {
+        display: none;
+      }
+
+      & textarea {
+        height: 80px;
+        margin: 5px 0 10px;
+      }
+
+      & > input[type='submit'] {
+        margin: 0;
+        height: 36px;
+        width: 120px;
+        font-size: 2.8rem;
+      }
+    }
+  }
+
+  .links {
+    height: 30%;
+    width: 90%;
+
+    & > div > a p {
+      margin: 0 10px !important;
+    }
+  }
+
   //Footer
   .footer {
     flex-direction: column;
   }
+}
+
+// ******************************************************
+
+@media (min-width:600px) {
+  //Base
+  :root {
+    font-size: 7px;
+  }
+
+  .container-content {
+    width: 520px;
+    height: 460px;
+    //transform: scale(.9);
+  }
+
+  #btn-start {
+    width: 200px;
+    height: 56px;
+  }
+
+  //Home
+  .header-home {
+    padding-top: 20px;
+
+    &:before {
+      bottom: -6px;
+      height: 2px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      padding: 22px 0 20px;
+    }
+
+    p {
+      padding: 0 20px 10px;
+      font-size: 2.2rem;
+    }
+  }
+
+  //Nav & BtnsHome
+  .nav {
+    padding-top: 20px;
+  }
+
+  .nav > ul > li {
+    margin: 7px 0;
+  }
+
+  button#submenu-me,
+  button#submenu-skills,
+  button#submenu-projects,
+  button#submenu-contact {
+    width: 180px;
+    height: 32px;
+  }
+
+  //Displaying Section
+  #btn-back {
+    top: 10px;
+
+    .fa-reply {
+      font-size: 4.2rem;
+    }
+  }
+
+  #select-me,
+  #select-skills,
+  #select-projects,
+  #select-contact {
+
+    & > header {
+      font-size: 2.8rem;
+    }
+  }
+
+  //Section1 - AboutMe
+  .my-picture {
+    width: 65px;
+    height: 65px;
+  }
+
+  .div-about-me {
+    width: 100%;
+    height: 64%;
+
+    & > p {
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 0 25px;
+    }
+  }
+
+  //Section2 - Skills
+  .div-skills > div:before{
+    font-size: 3.4rem;
+  }
+
+  //Section3 - Projects
+  #proj1, #proj2, #proj3 {
+    top: 10px;
+
+    &:before {
+      font-size: 18px;
+      width: 80px;
+      height: 35px;
+      line-height: 31px;
+      right: -55px;
+      top: 30px;
+    }
+    &:nth-child(2):before {
+      top: 125px;
+    }
+    &:nth-child(3):before {
+      top: 220px;
+    }
+
+    & > header {
+      padding-top: 8px;
+    }
+  }
+
+  .project-img {
+    width: 85%;
+
+    .project-text {
+      height: 66%;
+
+      & > p {
+        font-size: 2.2rem;
+        margin: 0 15px !important;
+      }
+    }
+
+    .demo, .code {
+      height: 12%;
+      width: 60%;
+      margin-bottom: 5px;
+      font-size: 2rem;
+    }
+  }
+
+  //Section4 - Contact
+  .div-contact {
+
+    & > form {
+      padding-top: 5px;
+
+      input[type='text'],
+      input[type='email'] {
+        height: 34px;
+        align-self: flex-start;
+        flex-direction: row;
+        justify-self: flex-start;
+      }
+
+      & label {
+        display: none;
+      }
+
+      & textarea {
+        height: 110px;
+        margin: 5px 0 15px;
+      }
+
+      & > input[type='submit'] {
+        margin: 0 100px;
+        height: 36px;
+        width: 120px;
+        font-size: 2.8rem;
+      }
+    }
+  }
+
+  .links {
+    height: 30%;
+    width: 90%;
+
+    & > div > a p {
+      margin: 0 10px !important;
+    }
+  }
+
+  //Footer
+  .footer {
+    flex-direction: row;
+  }
+}
+
+// ******************************************************
+
+@media (min-width:768px) {
+
 }
