@@ -1,0 +1,55 @@
+@media (max-width:320px) {
+  //Base
+  :root {
+    font-size: 6px;
+  }
+
+  .container-content {
+    width: 280px;
+    height: 340px;
+    //transform: scale(.9);
+  }
+
+  #btn-start {
+    width: 160px;
+    height: 50px;
+  }
+
+  //Home
+  .header-home {
+    padding-top: 0;
+
+    &:before {
+      bottom: -5px;
+      height: 2px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      padding: 22px 0 12px;
+    }
+
+    p {
+      padding: 0 10px 5px;
+      font-size: 1.8rem;
+    }
+  }
+
+  //Nav & BtnsHome
+  .nav {
+    padding-top: 10px;
+  }
+
+  button#submenu-me,
+  button#submenu-skills,
+  button#submenu-projects,
+  button#submenu-contact {
+    width: 150px;
+    height: 25px;
+  }
+
+  //Footer
+  .footer {
+    flex-direction: column;
+  }
+}

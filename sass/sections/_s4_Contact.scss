@@ -50,6 +50,7 @@
       border-radius: 10px;
       background-color: rgba(white, .5);
       margin: 10px 0 20px;
+      resize: none;
 
       &:hover, &:focus {
         box-shadow: 0 0 15px rgba(black, .35);
