@@ -58,7 +58,7 @@ $(document).ready( function () {
                 rightBot.addClass('right-bottom-move');
             }, 1100);
 
-            $('.blur').css('filter', 'blur(5px)');
+            $('.blur').css('filter', 'blur(6px)');
             $('.container-content').css('box-shadow', '0 0 50px black, 0 0 30px black');
 
             leftTop.children('span').addClass('visibility');

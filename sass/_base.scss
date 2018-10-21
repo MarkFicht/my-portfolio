@@ -42,7 +42,7 @@
   left: 0;
   background-image: url("img/cloudCompress.png");
   background-repeat: no-repeat;
-  background-size: 8000px;
+  background-size: cover;
   filter: blur(5px);
   animation: cloud 60s linear infinite;
 }
@@ -60,6 +60,18 @@
   p {
     font-size: 22px;
   }
+
+  img {
+    position: absolute;
+    z-index: -11;
+    //width: 120%;
+    //height: 100vh;
+    width: 2200px;
+    height: 1650px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 //---
@@ -70,12 +82,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: $bgImg;
-  background-size: 2200px;
-  background-repeat: no-repeat;
-  background-position: center;
   transition: all $timeAnime;
-  box-shadow: 0 0 15px black;
+  box-shadow: 0 0 12px rgba(black, .3);
 }
 
 //--- Start Btn
@@ -128,8 +136,8 @@
 
 //**************** ANIMATION
 @keyframes cloud {
-  from { background-position: 11% 1%; }
-  to { background-position: 100% 1%; }
+  from { background-position: 5%; }
+  to { background-position: 100%; }
 }
 @keyframes textColor {
   0% { color: #7e0fff; border: 2px solid #7e0fff; }
