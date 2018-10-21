@@ -1,9 +1,9 @@
 //  https://github.com/vuejs-templates/webpack/issues/1313
-$fa-font-path : "~@fortawesome/fontawesome-free-webfonts/webfonts";
-@import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
-@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
-@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss";
-@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-brands.scss";
+//$fa-font-path : "~@fortawesome/fontawesome-free-webfonts/webfonts";
+//@import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
+//@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
+//@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss";
+//@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-brands.scss";
 
 //**************** BASIC
 :root {
@@ -40,7 +40,7 @@ $fa-font-path : "~@fortawesome/fontawesome-free-webfonts/webfonts";
   width: 100%;
   top: 0;
   left: 0;
-  background-image: url("img/cloud.png");
+  background-image: url("img/cloudCompress.png");
   background-repeat: no-repeat;
   background-size: 8000px;
   filter: blur(5px);

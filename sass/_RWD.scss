@@ -213,7 +213,7 @@
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       padding: 22px 0 20px;
     }
 
@@ -375,5 +375,381 @@
 // ******************************************************
 
 @media (min-width:768px) {
+  //Base
+  :root {
+    font-size: 9px;
+  }
 
+  .container-content {
+    width: 740px;
+    height: 600px;
+    //transform: scale(.9);
+  }
+
+  #btn-start {
+    width: 240px;
+    height: 64px;
+  }
+
+  //Home
+  .header-home {
+    padding-top: 25px;
+
+    &:before {
+      bottom: -6px;
+      height: 3px;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      padding: 22px 0 25px;
+    }
+
+    p {
+      padding: 0 25px 10px;
+      font-size: 2.2rem;
+    }
+  }
+
+  //Nav & BtnsHome
+  .nav {
+    padding-top: 30px;
+  }
+
+  .nav > ul > li {
+    margin: 10px 0;
+  }
+
+  button#submenu-me,
+  button#submenu-skills,
+  button#submenu-projects,
+  button#submenu-contact {
+    width: 230px;
+    height: 40px;
+  }
+
+  //Displaying Section
+  #btn-back {
+    top: 13px;
+
+    .fa-reply {
+      font-size: 4.5rem;
+    }
+  }
+
+  #select-me,
+  #select-skills,
+  #select-projects,
+  #select-contact {
+
+    & > header {
+      font-size: 3rem;
+    }
+  }
+
+  //Section1 - AboutMe
+  .my-picture {
+    width: 85px;
+    height: 85px;
+  }
+
+  .div-about-me {
+    width: 100%;
+    height: 64%;
+
+    & > p {
+      font-size: 2.2rem;
+      font-weight: bold;
+      padding: 0 30px 5px;
+    }
+  }
+
+  //Section2 - Skills
+  .div-skills > div:before{
+    font-size: 4rem;
+  }
+
+  //Section3 - Projects
+  #proj1, #proj2, #proj3 {
+    top: 15px;
+
+    &:before {
+      font-size: 22px;
+      width: 100px;
+      height: 45px;
+      line-height: 40px;
+      right: -65px;
+      top: 40px;
+    }
+    &:nth-child(2):before {
+      top: 165px;
+    }
+    &:nth-child(3):before {
+      top: 290px;
+    }
+
+    & > header {
+      padding-top: 12px;
+    }
+  }
+
+  .project-img {
+    width: 80%;
+
+    .project-text {
+      height: 66%;
+
+      & > p {
+        font-size: 2.5rem;
+        margin: 0 20px !important;
+      }
+    }
+
+    .demo, .code {
+      height: 12%;
+      width: 60%;
+      margin-bottom: 5px;
+      font-size: 2rem;
+    }
+  }
+
+  //Section4 - Contact
+  .div-contact {
+
+    & > form {
+      padding-top: 20px;
+
+      input[type='text'],
+      input[type='email'] {
+        height: 40px;
+        align-self: flex-start;
+        flex-direction: row;
+        justify-self: flex-start;
+      }
+
+      & label {
+        display: block;
+      }
+
+      & textarea {
+        height: 130px;
+        margin: 5px 0 15px;
+      }
+
+      & > input[type='submit'] {
+        margin: 0 100px;
+        height: 50px;
+        width: 140px;
+        font-size: 2.8rem;
+      }
+    }
+  }
+
+  .links {
+    height: 30%;
+    width: 90%;
+
+    & > div > a p {
+      margin: 0 10px !important;
+    }
+  }
+
+  //Footer
+  .footer {
+    flex-direction: row;
+  }
 }
+
+// ******************************************************
+
+@media (min-width:1280px) {
+  //Base
+  :root {
+    font-size: 10px;
+  }
+
+  .container-content {
+    width: 900px;
+    height: 700px;
+    //transform: scale(.9);
+  }
+
+  #btn-start {
+    width: 260px;
+    height: 80px;
+  }
+
+  //Home
+  .header-home {
+    padding-top: 35px;
+
+    &:before {
+      bottom: -6px;
+      height: 3px;
+    }
+
+    h1 {
+      font-size: 4rem;
+      padding: 25px 0 30px;
+    }
+
+    p {
+      padding: 0 50px 12px;
+      font-size: 2.2rem;
+    }
+  }
+
+  //Nav & BtnsHome
+  .nav {
+    padding-top: 35px;
+  }
+
+  .nav > ul > li {
+    margin: 12px 0;
+  }
+
+  button#submenu-me,
+  button#submenu-skills,
+  button#submenu-projects,
+  button#submenu-contact {
+    width: 250px;
+    height: 46px;
+  }
+
+  //Displaying Section
+  #btn-back {
+    top: 13px;
+
+    .fa-reply {
+      font-size: 4.5rem;
+    }
+  }
+
+  #select-me,
+  #select-skills,
+  #select-projects,
+  #select-contact {
+
+    & > header {
+      font-size: 3.5rem;
+    }
+  }
+
+  //Section1 - AboutMe
+  .my-picture {
+    width: 100px;
+    height: 100px;
+  }
+
+  .div-about-me {
+    width: 100%;
+    height: 64%;
+
+    & > p {
+      font-size: 2.5rem;
+      font-weight: normal;
+      padding: 0 40px 10px;
+    }
+  }
+
+  //Section2 - Skills
+  .div-skills > div:before{
+    font-size: 4rem;
+  }
+
+  //Section3 - Projects
+  #proj1, #proj2, #proj3 {
+    top: 20px;
+
+    &:before {
+      font-size: 24px;
+      width: 120px;
+      height: 55px;
+      line-height: 44px;
+      right: -75px;
+      top: 50px;
+    }
+    &:nth-child(2):before {
+      top: 190px;
+    }
+    &:nth-child(3):before {
+      top: 330px;
+    }
+
+    & > header {
+      padding-top: 12px;
+    }
+  }
+
+  .project-img {
+    width: 80%;
+
+    .project-text {
+      height: 66%;
+
+      & > p {
+        font-size: 2.5rem;
+        margin: 0 20px !important;
+      }
+    }
+
+    .demo, .code {
+      height: 12%;
+      width: 60%;
+      margin-bottom: 5px;
+      font-size: 2rem;
+    }
+  }
+
+  //Section4 - Contact
+  .div-contact {
+
+    & > form {
+      padding-top: 25px;
+
+      input[type='text'],
+      input[type='email'] {
+        height: 45px;
+        font-size: 20px;
+        padding: 5px 15px;
+        align-self: flex-start;
+        flex-direction: row;
+        justify-self: flex-start;
+      }
+
+      & label {
+        display: block;
+        top: 15px !important;
+      }
+
+      & textarea {
+        height: 130px;
+        margin: 5px 0 25px;
+        padding: 5px 15px;
+        font-size: 20px;
+      }
+
+      & > input[type='submit'] {
+        margin: 0 100px;
+        height: 60px;
+        width: 160px;
+        font-size: 3rem;
+      }
+    }
+  }
+
+  .links {
+    height: 30%;
+    width: 90%;
+
+    & > div > a p {
+      margin: 0 10px !important;
+    }
+  }
+
+  //Footer
+  .footer {
+    flex-direction: row;
+  }
+}
+

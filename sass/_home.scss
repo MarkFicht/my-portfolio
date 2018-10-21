@@ -46,14 +46,14 @@
       content: attr(data-text);
       position: absolute;
       background: linear-gradient(-60deg,
-              #262626 38%, #595959 38%,
-              #595959 40%, #262626 40%,
-              #262626 41%, #595959 41%,
-              #595959 48%, #262626 48%);
+              #262626 38%, #6a6a6a 38%,
+              #6a6a6a 40%, #262626 40%,
+              #262626 41%, #6a6a6a 41%,
+              #6a6a6a 48%, #262626 48%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-size: 200%;
-      animation: shadowText 5s linear infinite;
+      animation: shadowText 4s linear infinite;
     }
   }
 

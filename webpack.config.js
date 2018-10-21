@@ -141,8 +141,8 @@ module.exports = function(env) {
 
         config.plugins.push(
             new Compression({
-                threshold: 0,
-                minRatio: 0.8
+                threshold: 1,
+                minRatio: 0.5
             })
         );
 
