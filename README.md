@@ -5,7 +5,10 @@
 The goal was to create a different page than all. <br/>
 We will get to individual sections by the tiles
 
-RWD comming soon.
+### In construction
+- Mailings
+- Optimization
+
 
 ### Installation and configuration
 
