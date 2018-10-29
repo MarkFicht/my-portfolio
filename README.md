@@ -2,6 +2,8 @@
 
 [DEMO](https://markficht.github.io/my-portfolio/build/)
 
+ATM: I know that this site doesn't have a good mechanism, but I built it for the initial layout. The next step will be optimization.
+
 The goal was to create a different page than all. <br/>
 We will get to individual sections by the tiles
 
